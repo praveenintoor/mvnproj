@@ -1,6 +1,7 @@
 pipeline {
 agent any 
-stages {
+stages
+{
 stage{'Build'}
 {
 steps{
@@ -10,28 +11,28 @@ sh "mvn clean"
 }
 stage{'Test'}
 {
-step{
+steps{
 echo "Test the code....."
 sh "mvn test"
 }
 }
 stage{'Compile'}
 {
-step{
+steps{
 echo "compile the code..."
 sh "mvn compile"
 }
 }
 stage{'package'}
 {
-step{
+steps{
 echo "package the code..."
 sh "mvn package"
 }
 }
 stage{'Deplo'}
 {
-step{
+steps{
 echo "deploy the code..."
 sh "mvn deploy"
 }
