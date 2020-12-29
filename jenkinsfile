@@ -12,14 +12,14 @@ sh "mvn clean"
 stage{'Test'}
 {
 steps{
-echo "Test the code....."
+echo "Testing the code....."
 sh "mvn test"
 }
 }
 stage{'Compile'}
 {
 steps{
-echo "compile the code..."
+echo "compiling the code..."
 sh "mvn compile"
 }
 }
@@ -30,10 +30,10 @@ echo "package the code..."
 sh "mvn package"
 }
 }
-stage{'Deplo'}
+stage{'Deploy'}
 {
 steps{
-echo "deploy the code..."
+echo "deploying the code..."
 sh "mvn deploy"
 }
 }
