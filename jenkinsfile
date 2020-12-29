@@ -1,43 +1,30 @@
 pipeline {
-agent any 
-stages
-{
-stage{'Build'}
-{
-steps{
-echo "Building the code....."
-sh "mvn clean"
-}
-}
-stage{'Test'}
-{
-steps{
-echo "Testing the code....."
-sh "mvn test"
-}
-}
-stage{'Compile'}
-{
-steps{
-echo "compiling the code..."
-sh "mvn compile"
-}
-}
-stage{'package'}
-{
-steps{
-echo "package the code..."
-sh "mvn package"
-}
-}
-stage{'Deploy'}
-{
-steps{
-echo "deploying the code..."
-sh "mvn deploy"
-}
-}
-}
-}
+    agent any
 
-
+    stages {
+        stage('Compile') {
+            steps {
+                echo 'compiling the code....'
+                sh 'mvn compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'testing the code...'
+                sh 'mvn test'
+            }
+        }
+        stage('Package') {
+            steps {
+                echo 'packaging the code...'
+                sh 'mvn package'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploying the code...'
+                sh 'mvn deploy'
+            }
+        }
+    }
+}
